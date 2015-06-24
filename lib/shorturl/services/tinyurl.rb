@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class TinyURL < Service
 
-      def initialize
+      def initialize(creds = nil)
         super('tinyurl.com')
 
         @action = "/api-create.php"

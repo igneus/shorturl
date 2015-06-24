@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class Vamu < Service
 
-      def initialize
+      def initialize(creds = nil)
         super('va.mu')
 
         @method = :get

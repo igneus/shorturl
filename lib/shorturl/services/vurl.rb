@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class Vurl < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("vurl.me")
 
         @method = :get

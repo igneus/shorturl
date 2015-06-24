@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class Bitly < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("api-ssl.bitly.com")
 
         @method = :get
@@ -12,7 +12,6 @@ module ShortURL
         @ssl = true
         @action = "/v3/shorten/"
 
-        creds = ShortURL.credentials_for('bitly')
         username = creds['username'] 
         key = creds['key'] 
 

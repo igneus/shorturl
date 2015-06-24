@@ -2,7 +2,7 @@ module ShortURL
   module Services
     class Minilink < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("minilink.org")
 
         @method = :get

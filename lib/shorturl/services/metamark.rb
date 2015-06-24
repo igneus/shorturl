@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class Metamark < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("metamark.net")
 
         @action = "/add"

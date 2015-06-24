@@ -6,7 +6,7 @@ module ShortURL
     # registration.
     class SnipURL < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("snipurl.com")
 
         @action = "/site/index"

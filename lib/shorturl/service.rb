@@ -15,7 +15,7 @@ module ShortURL
     # return code, the form method to use, the form action, the form
     # field which contains the long URL, and the block of what to do
     # with the HTML code you get.
-    def initialize(hostname) # :yield: service
+    def initialize(hostname, creds = nil) # :yield: service
       @hostname = hostname
       @port = 80
       @code = 200

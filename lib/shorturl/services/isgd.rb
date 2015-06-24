@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class Isgd < Service
 
-      def initialize
+      def initialize(creds = nil)
         super('is.gd')
 
         @method = :get

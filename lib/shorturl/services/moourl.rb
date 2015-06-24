@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class MooURL < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("moourl.com")
 
         @code = 302

@@ -2,7 +2,7 @@ module ShortURL
   module Services
     class Lns < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("ln-s.net")
 
         @method = :get

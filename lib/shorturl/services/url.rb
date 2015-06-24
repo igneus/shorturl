@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class Url < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("url.ca")
 
         @method = :post

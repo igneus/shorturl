@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class Shorl < Service
 
-      def initialize
+      def initialize(creds = nil)
         super("shorl.com")
 
         @method = :get

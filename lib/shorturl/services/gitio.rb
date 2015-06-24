@@ -4,7 +4,7 @@ module ShortURL
   module Services
     class Gitio < Service
 
-      def initialize
+      def initialize(creds = nil)
         super('git.io')
 
         @code = 201

@@ -30,19 +30,19 @@ module ShortURL
   # parameters set so that when +instance+.call is invoked, the
   # shortened URL is returned.
   SERVICES = {
-    :tinyurl => Services::TinyURL.new,
-    :shorl => Services::Shorl.new,
-    :snipurl => Services::SnipURL.new,
-    :metamark => Services::Metamark.new,
-    :minilink => Services::Minilink.new,
-    :lns => Services::Lns.new,
-    :moourl => Services::MooURL.new,
-    :bitly => Services::Bitly.new,
-    :ur1 => Services::Url.new,
-    :vurl => Services::Vurl.new,
-    :isgd => Services::Isgd.new,
-    :gitio => Services::Gitio.new,
-    :vamu => Services::Vamu.new,
+    :tinyurl => Services::TinyURL,
+    :shorl => Services::Shorl,
+    :snipurl => Services::SnipURL,
+    :metamark => Services::Metamark,
+    :minilink => Services::Minilink,
+    :lns => Services::Lns,
+    :moourl => Services::MooURL,
+    :bitly => Services::Bitly,
+    :ur1 => Services::Url,
+    :vurl => Services::Vurl,
+    :isgd => Services::Isgd,
+    :gitio => Services::Gitio,
+    :vamu => Services::Vamu,
 
     # :skinnylink => Service.new("skinnylink.com") { |s|
     #   s.block = lambda { |body| URI.extract(body).grep(/skinnylink/)[0] }
@@ -126,9 +126,10 @@ module ShortURL
   # call-seq:
   #   ShortURL.shorten("http://mypage.com") => Uses TinyURL
   #   ShortURL.shorten("http://mypage.com", :bitly)
-  def self.shorten(url, service = :tinyurl)
+  def self.shorten(url, service = :tinyurl, credentials = nil)
     if SERVICES.has_key?(service)
-      SERVICES[service].call(url)
+      credentials ||= self.credentials_for(service.to_s)
+      SERVICES[service].new(credentials).call(url)
     else
       raise InvalidService
     end
