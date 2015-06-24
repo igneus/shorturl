@@ -1,4 +1,4 @@
-gem 'rspec', '~> 2.4'
+gem 'rspec', '~> 2.6'
 require 'rspec'
 require 'shorturl'
 
